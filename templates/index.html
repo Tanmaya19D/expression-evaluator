@@ -1,8 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Expression Evaluator</title>
 
@@ -10,7 +17,9 @@
         rel="stylesheet"
         href="{{ url_for('static', filename='style.css') }}"
     >
+
 </head>
+
 
 <body>
 
@@ -18,78 +27,160 @@
 
         <div class="calculator-card">
 
-            <h1>Expression Evaluator</h1>
+            <h1>
+                Expression Evaluator
+            </h1>
+
 
             <p class="subtitle">
                 Infix to Postfix Conversion and Expression Evaluation
             </p>
 
-            <label for="expression">Enter Expression</label>
+
+            <label for="expression">
+                Enter Expression
+            </label>
+
 
             <input
                 type="text"
                 id="expression"
-                placeholder="Example: (2 + 3) * 4"
+                placeholder="Example: (2 + 3) * 4 or a + b * c"
                 autocomplete="off"
             >
 
+
             <div class="button-row">
+
                 <button id="convert-button">
                     Convert to Postfix
                 </button>
+
 
                 <button id="evaluate-button">
                     Evaluate
                 </button>
 
+
                 <button id="clear-button">
                     Clear
                 </button>
+
             </div>
 
-            <div id="message" class="message hidden"></div>
+
+            <!-- Variable values -->
+
+            <div
+                id="variables-container"
+                class="variables-container hidden"
+            >
+
+                <h2>
+                    Variable Values
+                </h2>
+
+
+                <p>
+                    Enter values for the variables in your expression.
+                </p>
+
+
+                <div id="variables-list"></div>
+
+            </div>
+
+
+            <div
+                id="message"
+                class="message hidden"
+            ></div>
+
 
             <div class="result-container">
 
-                <div class="result-box">
-                    <span>Infix Expression</span>
-                    <p id="infix-result">—</p>
-                </div>
 
                 <div class="result-box">
-                    <span>Postfix Expression</span>
-                    <p id="postfix-result">—</p>
+
+                    <span>
+                        Infix Expression
+                    </span>
+
+                    <p id="infix-result">
+                        —
+                    </p>
+
                 </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Postfix Expression
+                    </span>
+
+                    <p id="postfix-result">
+                        —
+                    </p>
+
+                </div>
+
 
                 <div class="result-box final-result">
-                    <span>Result</span>
-                    <p id="final-result">—</p>
+
+                    <span>
+                        Result
+                    </span>
+
+                    <p id="final-result">
+                        —
+                    </p>
+
                 </div>
+
 
             </div>
 
+
             <div class="examples">
 
-                <h2>Try Examples</h2>
+                <h2>
+                    Try Examples
+                </h2>
+
 
                 <button class="example-button">
                     2 + 3 * 4
                 </button>
 
+
                 <button class="example-button">
                     (2 + 3) * 4
                 </button>
+
 
                 <button class="example-button">
                     10 / 2 + 6
                 </button>
 
+
                 <button class="example-button">
                     2 ^ 3 + 4
                 </button>
 
+
                 <button class="example-button">
                     -5 + 3 * 4
+                </button>
+
+
+                <button class="example-button">
+                    a + b * c
+                </button>
+
+
+                <button class="example-button">
+                    (x + y) * z
                 </button>
 
             </div>
@@ -98,9 +189,11 @@
 
     </div>
 
+
     <script
         src="{{ url_for('static', filename='script.js') }}"
     ></script>
 
 </body>
+
 </html>

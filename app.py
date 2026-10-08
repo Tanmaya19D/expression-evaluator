@@ -1,3 +1,4 @@
+
 from flask import Flask, jsonify, render_template, request
 
 from calculator.converter import infix_to_postfix
@@ -77,7 +78,19 @@ def evaluate_expression():
                 "error": "Please enter an expression."
             }), 400
 
-        result = evaluate_infix(expression)
+        # Get variable values from frontend
+        variables = data.get("variables", {})
+
+        if not isinstance(variables, dict):
+            return jsonify({
+                "success": False,
+                "error": "Variables must be provided as an object."
+            }), 400
+
+        result = evaluate_infix(
+            expression,
+            variables
+        )
 
         return jsonify({
             "success": True,
